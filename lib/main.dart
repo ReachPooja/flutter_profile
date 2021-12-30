@@ -1,20 +1,16 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_profile/profile_view.dart';
+import 'package:flutter_profile/app/app.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+Future<void> main() async {
+  FlutterError.onError = (details) {
+    log(details.exceptionAsString(), stackTrace: details.stack);
+  };
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const ProfileView(),
-    );
-  }
+  await runZonedGuarded(
+    () async => runApp(const App()),
+    (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
+  );
 }
