@@ -75,20 +75,23 @@ class _MainViewState extends State<MainView> with TickerProviderStateMixin {
                     ),
                   ),
                   margin: EdgeInsets.zero,
-                  child: const TabBarView(
-                    physics: NeverScrollableScrollPhysics(),
-                    children: [
-                      ProfileView(),
-                      Center(
-                        child: Text('Family'),
-                      ),
-                      Center(
-                        child: Text('Activity'),
-                      ),
-                      Center(
-                        child: Text('Contribution'),
-                      ),
-                    ],
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: const TabBarView(
+                      physics: NeverScrollableScrollPhysics(),
+                      children: [
+                        ProfileView(),
+                        Center(
+                          child: Text('Family'),
+                        ),
+                        Center(
+                          child: Text('Activity'),
+                        ),
+                        Center(
+                          child: Text('Contribution'),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
