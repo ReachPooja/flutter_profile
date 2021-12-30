@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_profile/presentation/profile/profile_view.dart';
+import 'package:flutter_profile/presentation/core/colors.dart';
+import 'package:flutter_profile/presentation/main/main_view.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -7,10 +8,12 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: const Color(0xffEC1C24),
+        primaryColor: AppColors.primary,
+        fontFamily: 'PlayfairDisplay',
       ),
-      home: const ProfileView(),
+      home: const MainView(),
     );
   }
 }
